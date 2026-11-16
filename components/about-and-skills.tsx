@@ -25,7 +25,8 @@ const skills: {
   },
   {
     title: "Backend Development",
-    description: "Application logic, authentication, validation, and service integrations.",
+    description:
+      "Application logic, authentication, validation, and payment, email/SMTP, and WhatsApp integrations.",
     icon: ServerCog,
   },
   {

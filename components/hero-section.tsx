@@ -66,7 +66,7 @@ export function HeroSection() {
               fill
               priority
               sizes="(max-width: 580px) 85vw, (max-width: 820px) 38vw, 445px"
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
+              src="/ripaldi.webp"
             />
           </div>
           <div className="hero-floating-card">
