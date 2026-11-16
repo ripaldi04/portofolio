@@ -547,7 +547,56 @@ button {
   line-height: 1.65;
   margin: 0;
 }
+/* Mask reveal untuk judul */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  /* ruang ekstra supaya huruf seperti "p" tidak terpotong */
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
 
+.line-inner {
+  display: block;
+}
+
+/* Titik "Available" berdenyut */
+.availability-dot {
+  position: relative;
+}
+
+.availability-dot::after {
+  animation: dot-pulse 2s ease-out infinite;
+  background: var(--accent);
+  border-radius: 50%;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+@keyframes dot-pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+
+/* Isi kartu melayang */
+.floating-inner {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .availability-dot::after {
+    animation: none;
+  }
+}
 .tech-heading {
   margin: 0 auto;
   max-width: 660px;
