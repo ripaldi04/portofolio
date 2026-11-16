@@ -274,7 +274,56 @@ button {
   position: relative;
   z-index: 2;
 }
+.marquee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 3rem;
+}
 
+.marquee {
+  overflow: hidden;
+  /* efek memudar di kiri & kanan */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 35s linear infinite;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Pakai margin, bukan gap, supaya loop pas -50% tanpa loncat */
+.marquee-track .tech-card {
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-right: 1rem;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Hormati pengguna yang mematikan animasi di perangkatnya */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
 .availability {
   align-items: center;
   border: 1px solid rgba(182, 242, 108, 0.19);
@@ -499,8 +548,19 @@ button {
   margin: 0;
 }
 
-.tech-section {
-  background: linear-gradient(180deg, transparent, rgba(18, 26, 32, 0.5), transparent);
+.tech-heading {
+  margin: 0 auto;
+  max-width: 660px;
+  text-align: center;
+}
+
+.tech-heading .section-title {
+  margin: 0;
+}
+
+.tech-heading .section-copy {
+  margin: 18px auto 0;
+  max-width: 480px;
 }
 
 .tech-groups {
